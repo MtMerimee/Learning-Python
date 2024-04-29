@@ -18,12 +18,14 @@
 def verbing(s):
   # +++your code here+++
   change = 'ing'
-  if s < 3:
+  if len(s) < 3:
     return s
   elif s[-3:] == change:
-    old = 
-    return s.replace()
-  return
+    new_ending = 'ly'
+    return s + new_ending
+  else:
+    return s + 'ing'
+
 
 
 # E. not_bad
@@ -36,7 +38,15 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
   # +++your code here+++
-  return
+  not_start = s.find('not')
+  bad_start = s.find('bad')
+  bad_end = s.find('bad') + 3
+  start_part_to_keep = s[:not_start]
+  end_part_to_keep = s[bad_end:]
+  if not_start < bad_start:
+    return start_part_to_keep + 'good' + end_part_to_keep
+  else:
+    return s
 
 
 # F. front_back
@@ -48,7 +58,29 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
   # +++your code here+++
-  return
+  a_front = a[:(len(a)//2)]
+  a_back = a[(len(a)//2):]
+  b_front = b[:(len(b)//2)]
+  b_back = b[(len(b)//2):]
+  if len(a) % 2 != 0 and len(b) % 2 != 0:
+    a_front = a[:(len(a)//2) + 1]
+    a_back = a[(len(a)//2) + 1:]
+    b_front = b[:(len(b)//2) + 1]
+    b_back = b[(len(b)//2) + 1:]
+    return a_front + b_front + a_back + b_back
+  elif len(b) % 2 != 0:
+    a_front = a[:(len(a)//2)]
+    a_back = a[(len(a)//2):]
+    b_front = b[:(len(b)//2) + 1]
+    b_back = b[(len(b)//2) + 1:]
+    return a_front + b_front + a_back + b_back
+  elif len(a) % 2 != 0:
+    a_front = a[:(len(a)//2) + 1]
+    a_back = a[(len(a)//2) + 1:]
+    b_front = b[:(len(b)//2)]
+    b_back = b[(len(b)//2):]
+    return a_front + b_front + a_back + b_back
+  return a_front + b_front + a_back + b_back
 
 
 # Simple provided test() function used in main() to print
