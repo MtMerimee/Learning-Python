@@ -17,6 +17,12 @@
 # Return the resulting string.
 def verbing(s):
   # +++your code here+++
+  change = 'ing'
+  if s < 3:
+    return s
+  elif s[-3:] == change:
+    old = 
+    return s.replace()
   return
 
 
